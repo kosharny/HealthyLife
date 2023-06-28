@@ -11,7 +11,9 @@ struct SelectTheDesiredWindowCalculateView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
-        if viewModel.userSession != nil && viewModel.currenUser?.calorie == 0 {
+        if viewModel.userSession == nil && viewModel.currenUser?.calorie == 0 {
+            CalculatorView()
+        } else if viewModel.currenUser?.calorie == nil {
             CalculatorView()
         } else {
             CalculatorViewResult(calorie: viewModel.currenUser!.calorie, speedResult: viewModel.currenUser!.speedResult, lightResult: viewModel.currenUser!.lightResult)
