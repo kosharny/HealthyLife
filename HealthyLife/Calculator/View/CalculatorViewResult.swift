@@ -62,31 +62,49 @@ extension CalculatorViewResult {
                 .font(Font.custom("monserat", size: 20))
                 .foregroundColor(Color("text2color"))
                 .padding(.top, 20)
-            
-            Text("\(calorie) ккал/день ")
-                .multilineTextAlignment(.center)
-                .font(Font.custom("monserat", size: 20))
-                .foregroundColor(.black)
+            HStack(spacing: 0) {
+                Text("\(calorie)")
+                    .multilineTextAlignment(.center)
+                    .font(Font.custom("monserat", size: 20))
+                    .foregroundColor(.black)
+                Text(" ккал/день ")
+                    .multilineTextAlignment(.center)
+                    .font(Font.custom("monserat", size: 20))
+                    .foregroundColor(.black)
+            }
             
             Text("Сколько нужно калорий в день для похудения:")
                 .multilineTextAlignment(.center)
                 .font(Font.custom("monserat", size: 20))
                 .foregroundColor(Color("text2color"))
                 .padding(.top, 4)
-            Text("\(lightResult) ккал/день ")
-                .multilineTextAlignment(.center)
-                .font(Font.custom("monserat", size: 20))
-                .foregroundColor(.black)
+            HStack(spacing: 0) {
+                Text("\(lightResult)")
+                    .multilineTextAlignment(.center)
+                    .font(Font.custom("monserat", size: 20))
+                    .foregroundColor(.black)
+                Text(" ккал/день ")
+                    .multilineTextAlignment(.center)
+                    .font(Font.custom("monserat", size: 20))
+                    .foregroundColor(.black)
+            }
             
             Text(" Сколько нужно калорий в день, чтобы похудеть быстро:")
                 .multilineTextAlignment(.center)
                 .font(Font.custom("monserat", size: 20))
                 .foregroundColor(Color("text2color"))
                 .padding(.top, 4)
-            Text("\(speedResult) ккал/день ")
-                .multilineTextAlignment(.center)
-                .font(Font.custom("monserat", size: 20))
-                .foregroundColor(.black)
+            HStack(spacing: 0) {
+                Text("\(speedResult)")
+                    .multilineTextAlignment(.center)
+                    .font(Font.custom("monserat", size: 20))
+                    .foregroundColor(.black)
+                Text(" ккал/день ")
+                    .multilineTextAlignment(.center)
+                    .font(Font.custom("monserat", size: 20))
+                    .foregroundColor(.black)
+            }
+            
             
             Text("Диета:")
                 .multilineTextAlignment(.center)

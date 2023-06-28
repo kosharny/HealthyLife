@@ -52,7 +52,7 @@ struct MainMenuView: View {
                                 RoundedRectangle(cornerRadius: 16)
                                     .frame(height: UIScreen.main.bounds.height/20)
                                     .foregroundColor(index == selectedButtonIndex ? Color("mainBgColor") : Color("colorGrayBg"))
-                                Text(filterNaeme[index].uppercased())
+                                Text(filterNaeme[index].localized().uppercased())
                                     .font(Font.custom("monserat", size: 16).bold())
                                     .foregroundColor(index == selectedButtonIndex ? Color(.white) : Color("text2color"))
                                     .padding(.horizontal)
@@ -64,6 +64,7 @@ struct MainMenuView: View {
                 }
                 .frame(height: UIScreen.main.bounds.height/17)
             }
+            .scrollIndicators(.hidden)
             Spacer()
             ScrollView {
                 

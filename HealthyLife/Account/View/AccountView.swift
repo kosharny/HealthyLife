@@ -20,10 +20,15 @@ struct AccountView: View {
                 HStack {
                     Spacer()
                     if let user = viewModel.currenUser {
-                        Text("Привет, \(user.name)!")
-                            .font(Font.custom("monserat", size: 30).bold())
-                            .foregroundColor(Color("text2color"))
-                            .padding(.horizontal)
+                        HStack(spacing: 0) {
+                            Text("Привет, ")
+                                .font(Font.custom("monserat", size: 30).bold())
+                                .foregroundColor(Color("text2color"))
+                            Text("\(user.name)!")
+                                .font(Font.custom("monserat", size: 30).bold())
+                                .foregroundColor(Color("text2color"))
+                        }
+                        .padding(.horizontal)
                     }
                 }
                 

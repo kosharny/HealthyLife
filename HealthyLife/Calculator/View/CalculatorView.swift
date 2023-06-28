@@ -100,7 +100,7 @@ extension CalculatorView {
                             Button {
                                 self.gender = option
                             } label: {
-                                Text(option)
+                                Text(option.localized())
                             }
                         }
                     }
@@ -113,7 +113,7 @@ extension CalculatorView {
                             .foregroundColor(.white)
                             .frame(width: UIScreen.main.bounds.width/2.5, height: UIScreen.main.bounds.height/22)
                             .shadow(radius: 8)
-                        Text(gender)
+                        Text(gender.localized())
                             .font(Font.custom("monserat", size: 20))
                             .foregroundColor(.black)
                         
@@ -188,7 +188,7 @@ extension CalculatorView {
                                 Button {
                                     self.activityLavel = option
                                 } label: {
-                                    Text(option)
+                                    Text(option.localized())
                                 }
                             }
                         }
@@ -201,10 +201,14 @@ extension CalculatorView {
                                 .foregroundColor(.white)
                                 .frame(height: UIScreen.main.bounds.height/22)
                                 .shadow(radius: 8)
-                            TextField("", text: $activityLavel)
-                                .padding()
-                                .frame(height: UIScreen.main.bounds.height/22)
-                                .font(Font.custom("monserat", size: 16))
+                            //                            TextField("", text: $activityLavel)
+                            //                                .padding()
+                            //                                .frame(height: UIScreen.main.bounds.height/22)
+                            //                                .font(Font.custom("monserat", size: 16))
+                            //                                .foregroundColor(.black)
+                            
+                            Text(activityLavel.localized())
+                                .font(Font.custom("monserat", size: 20))
                                 .foregroundColor(.black)
                         }
                     }
@@ -236,7 +240,7 @@ extension CalculatorView {
             .padding(.horizontal, 30)
             
             Button {
-//                viewModel.calorieCalculator(gender: gender, weight: Double(weight) ?? 0.0, height: Double(height) ?? 0.0, age: Double(age) ?? 0.0, activity: activityLavel)
+                //                viewModel.calorieCalculator(gender: gender, weight: Double(weight) ?? 0.0, height: Double(height) ?? 0.0, age: Double(age) ?? 0.0, activity: activityLavel)
                 viewModel.calorieCalculator(gender: gender, weight: Double(weight) ?? 0.0, height: Double(height) ?? 0.0, age: Double(age) ?? 0.0, activity: activityLavel)
                 
                 calorie = viewModel.calorieCalculatorView(gender: gender, weight: Double(weight) ?? 0.0, height: Double(height) ?? 0.0, age: Double(age) ?? 0.0, activity: activityLavel)
@@ -257,7 +261,7 @@ extension CalculatorView {
             }
             .navigationDestination(isPresented: $isCalculatorResult) {
                 
-        CalculatorViewResult(calorie: calorie, speedResult: speedResult, lightResult: lightResult)
+                CalculatorViewResult(calorie: calorie, speedResult: speedResult, lightResult: lightResult)
             }
         }
     }
