@@ -36,6 +36,8 @@
 		DD226B7E2A39D29A0007C9DD /* CalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD226B7D2A39D29A0007C9DD /* CalculatorViewModel.swift */; };
 		DD226B802A43108C0007C9DD /* SelectTheDesiredWindowCalculateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD226B7F2A43108C0007C9DD /* SelectTheDesiredWindowCalculateView.swift */; };
 		DD226B832A49A5D20007C9DD /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = DD226B822A49A5D20007C9DD /* FacebookLogin */; };
+		DD226B852A4AEF590007C9DD /* LoginFBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD226B842A4AEF590007C9DD /* LoginFBButton.swift */; };
+		DD226B892A4AFDD80007C9DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD226B882A4AFDD80007C9DD /* AppDelegate.swift */; };
 		DD3F26A92A2899A000977C86 /* HealthyLifeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3F26A82A2899A000977C86 /* HealthyLifeApp.swift */; };
 		DD3F26AB2A2899A000977C86 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3F26AA2A2899A000977C86 /* ContentView.swift */; };
 		DD3F26AD2A2899A100977C86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD3F26AC2A2899A100977C86 /* Assets.xcassets */; };
@@ -69,6 +71,8 @@
 		DD226B7A2A35AD790007C9DD /* SelectTheDesiredWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTheDesiredWindowView.swift; sourceTree = "<group>"; };
 		DD226B7D2A39D29A0007C9DD /* CalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModel.swift; sourceTree = "<group>"; };
 		DD226B7F2A43108C0007C9DD /* SelectTheDesiredWindowCalculateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTheDesiredWindowCalculateView.swift; sourceTree = "<group>"; };
+		DD226B842A4AEF590007C9DD /* LoginFBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFBButton.swift; sourceTree = "<group>"; };
+		DD226B882A4AFDD80007C9DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD3F26A52A2899A000977C86 /* HealthyLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthyLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3F26A82A2899A000977C86 /* HealthyLifeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthyLifeApp.swift; sourceTree = "<group>"; };
 		DD3F26AA2A2899A000977C86 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				DD226B702A3096F80007C9DD /* AuthViewModel.swift */,
+				DD226B842A4AEF590007C9DD /* LoginFBButton.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 				DD3F26B62A2899EC00977C86 /* Menu */,
 				DD3F26A82A2899A000977C86 /* HealthyLifeApp.swift */,
 				DD3F26AA2A2899A000977C86 /* ContentView.swift */,
+				DD226B882A4AFDD80007C9DD /* AppDelegate.swift */,
 				DD3F26AC2A2899A100977C86 /* Assets.xcassets */,
 				DD226B4F2A3086D10007C9DD /* GoogleService-Info.plist */,
 				DD3F26AE2A2899A100977C86 /* Preview Content */,
@@ -405,6 +411,7 @@
 				DD226B712A3096F80007C9DD /* AuthViewModel.swift in Sources */,
 				DD226B6A2A308C830007C9DD /* MainMenuViewModel.swift in Sources */,
 				DD226B732A332B200007C9DD /* AlertView.swift in Sources */,
+				DD226B852A4AEF590007C9DD /* LoginFBButton.swift in Sources */,
 				DD3F26D42A28B26A00977C86 /* LaunchScreen.swift in Sources */,
 				DD3F26CC2A28AB2100977C86 /* CustomTabBar.swift in Sources */,
 				DD3F26CE2A28B18000977C86 /* CalculatorView.swift in Sources */,
@@ -422,6 +429,7 @@
 				DD2192912A2F300F0074B9E1 /* SignInView.swift in Sources */,
 				DD194E562A2A01DB00BB6665 /* PostView.swift in Sources */,
 				DD226B802A43108C0007C9DD /* SelectTheDesiredWindowCalculateView.swift in Sources */,
+				DD226B892A4AFDD80007C9DD /* AppDelegate.swift in Sources */,
 				DD3F26A92A2899A000977C86 /* HealthyLifeApp.swift in Sources */,
 				DD194E5C2A2DDC0F00BB6665 /* CustomEditText.swift in Sources */,
 				DD194E582A2A020000BB6665 /* PostCell.swift in Sources */,
@@ -559,6 +567,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HealthyLife/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -587,6 +596,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HealthyLife/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

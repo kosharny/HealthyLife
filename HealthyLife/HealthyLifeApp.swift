@@ -11,6 +11,8 @@ import Firebase
 @main
 struct HealthyLifeApp: App {
     
+    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject var viewModel = AuthViewModel()
     
     init() {
