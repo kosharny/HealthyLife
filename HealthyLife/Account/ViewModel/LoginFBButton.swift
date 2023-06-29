@@ -56,9 +56,9 @@ struct login: UIViewRepresentable {
                                 "name": name,
                                 "uid": user.uid]
                     
-//                    Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in
+                    Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in
 //                        self.didAuthUser = true
-//                    }
+                    }
 //                    self.userSession = user
                     print("DEBUG: sucess")
                 }

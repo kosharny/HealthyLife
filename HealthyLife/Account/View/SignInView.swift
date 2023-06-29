@@ -101,30 +101,40 @@ struct SignInView: View {
                     .padding(.top, 25)
                 }
                 
-                login().frame(height: UIScreen.main.bounds.height/20).cornerRadius(16).shadow(radius: 8)
-//                Button {
-//                    // signInWithFacebook
-//                } label: {
-//                    ZStack {
-//                        RoundedRectangle(cornerRadius: 16)
-//                            .frame(height: UIScreen.main.bounds.height/20)
-//                            .foregroundColor(Color("fbButton"))
-//                            .shadow(radius: 8)
-//                        HStack {
-//                            Text("Войти с помощью Facebook")
-//                                .font(Font.custom("monserat", size: 16).bold())
-//                                .foregroundColor(.white)
-//                                .padding(.horizontal)
-//
-//                            Spacer()
-//
-//                            Image("facebook")
-//                                .frame(width: UIScreen.main.bounds.width/14, height: UIScreen.main.bounds.width/14)
-//                        }
-//                        .padding(.horizontal)
-//                    }
-//                    .padding(.top, 15)
-//                }
+                ZStack {
+                    RoundedRectangle(cornerRadius: 16)
+                        .frame(height: UIScreen.main.bounds.height/20)
+                        .foregroundColor(Color("fbButton"))
+                        .shadow(radius: 8)
+                    login()
+                        .padding(.horizontal)
+                        .frame(height: UIScreen.main.bounds.height/20)
+                }
+                .padding(.top)
+                
+                //                Button {
+                //                    // signInWithFacebook
+                //                } label: {
+                //                    ZStack {
+                //                        RoundedRectangle(cornerRadius: 16)
+                //                            .frame(height: UIScreen.main.bounds.height/20)
+                //                            .foregroundColor(Color("fbButton"))
+                //                            .shadow(radius: 8)
+                //                        HStack {
+                //                            Text("Войти с помощью Facebook")
+                //                                .font(Font.custom("monserat", size: 16).bold())
+                //                                .foregroundColor(.white)
+                //                                .padding(.horizontal)
+                //
+                //                            Spacer()
+                //
+                //                            Image("facebook")
+                //                                .frame(width: UIScreen.main.bounds.width/14, height: UIScreen.main.bounds.width/14)
+                //                        }
+                //                        .padding(.horizontal)
+                //                    }
+                //                    .padding(.top, 15)
+                //                }
                 Spacer()
             }
             .padding(.top, 20)

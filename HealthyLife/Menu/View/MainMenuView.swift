@@ -77,26 +77,26 @@ struct MainMenuView: View {
                         .offset(y: 15)
                 }
                 
-//                GeometryReader { reader -> AnyView in
-//                    DispatchQueue.main.async {
-//                        if refresh.startOffset == 0 {
-//                            refresh.startOffset = reader.frame(in: .global).minY
-//                        }
-//
-//                        refresh.offset = reader.frame(in: .global).minY
-//
-//                        if refresh.offset - refresh.startOffset > 120 && !refresh.started {
-//                            refresh.started = true
-//                        }
-//
-//                        if refresh.startOffset == refresh.offset && refresh.started && !refresh.released {
-//                            withAnimation(Animation.linear){refresh.released = true}
-//                            updateDate()
-//                        }
-//                    }
-//
-//                    return AnyView(Color.black.frame(width: 0, height: 0))
-//                }
+                GeometryReader { reader -> AnyView in
+                    DispatchQueue.main.async {
+                        if refresh.startOffset == 0 {
+                            refresh.startOffset = reader.frame(in: .global).minY
+                        }
+
+                        refresh.offset = reader.frame(in: .global).minY
+
+                        if refresh.offset - refresh.startOffset > 120 && !refresh.started {
+                            refresh.started = true
+                        }
+
+                        if refresh.startOffset == refresh.offset && refresh.started && !refresh.released {
+                            withAnimation(Animation.linear){refresh.released = true}
+                            updateDate()
+                        }
+                    }
+
+                    return AnyView(Color.black.frame(width: 0, height: 0))
+                }
                 
                 
                 

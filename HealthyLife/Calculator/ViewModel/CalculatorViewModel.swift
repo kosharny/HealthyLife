@@ -45,7 +45,6 @@ class CalculatorViewModel: ObservableObject  {
         let speedResult = Int(calorie * 0.6)
         let lightResult = Int(calorie * 0.8)
         updateValueInFirestoreCollection(newValue: Int(calorie), speedResult: speedResult, lightResult: lightResult)
-        print("DEBUG: \(calorie)")
     }
     
     func updateValueInFirestoreCollection(newValue: Int, speedResult: Int, lightResult: Int) {
