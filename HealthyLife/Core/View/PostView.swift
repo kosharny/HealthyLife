@@ -13,7 +13,7 @@ struct PostView: View {
     
 //    @ObservedObject var viewModel: LikeViewModel
     @State private var showAlert = false
-    var post = PostInfo(imageName: "", titleName: "")
+    var post = PostInfo(imageName: "", titleName: "", titleNameEn: "")
     let impactGenerator = UIImpactFeedbackGenerator(style: .rigid)
     
     
@@ -28,6 +28,7 @@ struct PostView: View {
         ZStack {
             ScrollView {
                 VStack {
+                    
                     KFImage(URL(string: post.imageName))
                     //                    .onProgress { receivedSize, totalSize in
                     //                                    if !self.isLoading {

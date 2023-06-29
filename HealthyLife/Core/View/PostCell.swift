@@ -13,7 +13,7 @@ struct PostCell: View {
     
     let width = UIScreen.main.bounds.width - 40
     let height = UIScreen.main.bounds.height / 2 - 130
-    var post = PostInfo(imageName: "", titleName: "Двухслойная творожная запеканка")
+    var post = PostInfo(imageName: "", titleName: "Двухслойная творожная запеканка", titleNameEn: "Двухслойная творожная запеканка")
     
     @State private var isLoading = false
     

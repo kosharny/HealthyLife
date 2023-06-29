@@ -29,10 +29,10 @@ struct LikeView: View {
                             showModal = true
                         }
                     } label: {
-                            PostCell(post: PostInfo(imageName: post.imageName, titleName: post.titleName))
+                        PostCell(post: PostInfo(imageName: post.imageName, titleName: post.titleName, titleNameEn: post.titleNameEn))
                     }
                     .sheet(isPresented: $showModal) {
-                        PostView(post: PostInfo(imageName: post.imageName, textLabel: post.textLabel ?? "" , titleName: post.titleName))
+                        PostView(post: PostInfo(imageName: post.imageName, textLabel: post.textLabel ?? "" , titleName: post.titleName, titleNameEn: post.titleNameEn))
                     }
                 }
             }

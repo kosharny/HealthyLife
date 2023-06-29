@@ -14,6 +14,8 @@ struct PostInfo: Identifiable, Decodable, Hashable {
     var imageName: String
     var textLabel: String?
     var titleName: String
+    var textLabelEn: String?
+    var titleNameEn: String
     var category: String?
     var date: Timestamp?
     

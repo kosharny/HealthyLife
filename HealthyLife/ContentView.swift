@@ -11,7 +11,7 @@ struct ContentView: View {
     
     @State private var selectedIndex: Tab = .main
     @EnvironmentObject var viewModel: AuthViewModel
-    var post = PostInfo(imageName: "", titleName: "")
+    var post = PostInfo(imageName: "", titleName: "", titleNameEn: "")
     let impactGenerator = UIImpactFeedbackGenerator(style: .medium)
     
     init() {

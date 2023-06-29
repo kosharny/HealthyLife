@@ -1,0 +1,70 @@
+/* 
+  Localizable.strings
+  HealthyLife
+
+  Created by Maksim Kosharny on 28.06.2023.
+  
+*/
+"ВПЕРЕД!" = "FORWARD!";
+"Ваш желаймый вес:" = "Your desired weight:";
+"Ваш уровень активности:" = "Your Activity Level:";
+"Ваш вес:" = "Your weight:";
+"Ваш рост:" = "Your height:";
+"Ваш пол:" = "What's your gender:";
+"Ваш возраст:" = "Your age:";
+"КАЛЬКУЛЯТОР" = "CALCULATOR";
+"КАЛОРИЙ" = "CALORIES";
+
+"Мужской" = "Male";
+"Женский" = "Female";
+"Основной обмен" = "BX";
+"минимум/отсутсвие физической активности" = "minimum/lack of physical activity";
+"3 раза в неделю" = "3 times a week";
+"5 раз в неделю" = "5 times per week";
+"5 раз в неделю (интенсивно)" = "5 times a week (intense)";
+"Каждый день" = "Every day";
+"Каждый день интенсивно или 2 раза в день" = "Every day intensively or 2 times a day";
+"Ежедневная физическая нагрузка+физическая работа" = "Daily physical activity + physical work";
+
+"ВС" = "Sun";
+"СБ" = "Sat";
+"ПТ" = "Fr";
+"ЧТ" = "Thu";
+"СР" = "Wed";
+"ВТ" = "Tue";
+"ПН" = "Mon";
+" ккал/день " = " kcal/day ";
+
+"Не изменяя вес" = "Without changing the weight";
+"Потеря веса" = "Weight loss";
+"Быстрая потеря веса" = "Fast weight loss";
+"Диета:" = "Diet:";
+" Сколько нужно калорий в день, чтобы похудеть быстро:" = " How many calories per day do you need to lose weight fast:";
+"Сколько нужно калорий в день для похудения:" = "How many calories per day to lose weight:";
+"Сколько нужно калорий в день, чтобы вес не менялся:" = "How many calories per day do you need to keep your weight down:";
+
+"Выйти" = "Go out";
+"Ваша калорийность" = "Your calories";
+"Сохраненные" = "Saved";
+"Привет, " = "Hello, ";
+
+"Войти с помощью Facebook" = "Login with Facebook";
+"Войти с помощью Google" = "Sign in with Google";
+"У Вас уже есть аккаунт?" = "Do you already have an account?";
+"Зарегистрироваться" = "Register";
+"Подтвердите пароль" = "Confirm the password";
+"Пароль" = "Password";
+"Имя" = "Name";
+"Электронная почта" = "Email";
+"Войдите в свой аккаунт!" = "Login to your account!";
+
+"У Вас нет аккаунта?" = "Don't have an account?";
+"Войти" = "Enter";
+"Войдите в свой аккаунт!" = "Login to your account!";
+
+"все" = "all";
+"завтрак" = "breakfast";
+"десерты" = "dessert";
+"обед" = "dinner";
+
+"Сохраненно" = "Saved";

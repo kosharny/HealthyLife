@@ -30,6 +30,9 @@ struct MainMenuView: View {
     
     var body: some View {
         VStack {
+            let currentLocale = Locale.current
+            let languageCode = currentLocale.languageCode ?? ""
+            
             ScrollView(.horizontal) {
                 HStack {
                     ForEach(0..<filterNaeme.count, id: \.self) { index in
@@ -74,26 +77,26 @@ struct MainMenuView: View {
                         .offset(y: 15)
                 }
                 
-                GeometryReader { reader -> AnyView in
-                    DispatchQueue.main.async {
-                        if refresh.startOffset == 0 {
-                            refresh.startOffset = reader.frame(in: .global).minY
-                        }
-                        
-                        refresh.offset = reader.frame(in: .global).minY
-                        
-                        if refresh.offset - refresh.startOffset > 120 && !refresh.started {
-                            refresh.started = true
-                        }
-                        
-                        if refresh.startOffset == refresh.offset && refresh.started && !refresh.released {
-                            withAnimation(Animation.linear){refresh.released = true}
-                            updateDate()
-                        }
-                    }
-                    
-                    return AnyView(Color.black.frame(width: 0, height: 0))
-                }
+//                GeometryReader { reader -> AnyView in
+//                    DispatchQueue.main.async {
+//                        if refresh.startOffset == 0 {
+//                            refresh.startOffset = reader.frame(in: .global).minY
+//                        }
+//
+//                        refresh.offset = reader.frame(in: .global).minY
+//
+//                        if refresh.offset - refresh.startOffset > 120 && !refresh.started {
+//                            refresh.started = true
+//                        }
+//
+//                        if refresh.startOffset == refresh.offset && refresh.started && !refresh.released {
+//                            withAnimation(Animation.linear){refresh.released = true}
+//                            updateDate()
+//                        }
+//                    }
+//
+//                    return AnyView(Color.black.frame(width: 0, height: 0))
+//                }
                 
                 
                 
@@ -105,11 +108,19 @@ struct MainMenuView: View {
                             showModal = true
                         }
                     } label: {
-                        PostCell(post: PostInfo(imageName: post.imageName, titleName: post.titleName))
+                        if languageCode == "ru" {
+                            PostCell(post: PostInfo(imageName: post.imageName, titleName: post.titleName, titleNameEn: post.titleNameEn))
+                        } else {
+                            PostCell(post: PostInfo(imageName: post.imageName, titleName: post.titleNameEn, titleNameEn: post.titleNameEn))
+                        }
                     }
                     //item
                     .sheet(isPresented: $showModal) {
-                        PostView(post: PostInfo(imageName: post.imageName, textLabel: post.textLabel ?? "" , titleName: post.titleName))
+                        if languageCode == "ru" {
+                            PostView(post: PostInfo(imageName: post.imageName, textLabel: post.textLabel ?? "" , titleName: post.titleName, titleNameEn: post.titleNameEn))
+                        } else {
+                            PostView(post: PostInfo(imageName: post.imageName, textLabel: post.textLabelEn ?? "" , titleName: post.titleNameEn, titleNameEn: post.titleNameEn))
+                        }
                     }
                 }
             }
