@@ -37,12 +37,20 @@ struct CalculatorView: View {
                     .init(color: Color("gradientColor2"), location: 0.5)
                 ]), startPoint: .top, endPoint: .bottom)
                 VStack {
-                    Text("КАЛЬКУЛЯТОР")
-                        .font(Font.custom("monserat", size: 32))
-                        .foregroundColor(Color("text2color"))
-                    Text("КАЛОРИЙ")
-                        .font(Font.custom("monserat", size: 32))
-                        .foregroundColor(Color("text2color"))
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 16)
+                            .frame(width: UIScreen.main.bounds.width*0.65, height: UIScreen.main.bounds.width/5)
+                            .foregroundColor(.white)
+                            .shadow(radius: 16)
+                        VStack {
+                            Text("КАЛЬКУЛЯТОР")
+                                .font(Font.custom("monserat", size: 32))
+                                .foregroundColor(Color("text2color"))
+                            Text("КАЛОРИЙ")
+                                .font(Font.custom("monserat", size: 32))
+                                .foregroundColor(Color("text2color"))
+                        }
+                    }
                     optionView
                     Spacer()
                     
