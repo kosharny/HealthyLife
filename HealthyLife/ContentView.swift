@@ -75,7 +75,7 @@ extension ContentView {
 //                                    CalculatorView()
                                     SelectTheDesiredWindowCalculateView()
                                 case .like:
-                                        LikeView()
+                                        WaterControlView()
                                 case .account:
                                         SelectTheDesiredWindowView()
 //                                    Group {

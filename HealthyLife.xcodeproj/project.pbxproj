@@ -40,6 +40,7 @@
 		DD226B892A4AFDD80007C9DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD226B882A4AFDD80007C9DD /* AppDelegate.swift */; };
 		DD226B8C2A4C38D30007C9DD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD226B8E2A4C38D30007C9DD /* Localizable.strings */; };
 		DD226B912A4C43CD0007C9DD /* Extension + string.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD226B902A4C43CD0007C9DD /* Extension + string.swift */; };
+		DD226B942A5029350007C9DD /* WaterControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD226B932A5029350007C9DD /* WaterControlView.swift */; };
 		DD3F26A92A2899A000977C86 /* HealthyLifeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3F26A82A2899A000977C86 /* HealthyLifeApp.swift */; };
 		DD3F26AB2A2899A000977C86 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3F26AA2A2899A000977C86 /* ContentView.swift */; };
 		DD3F26AD2A2899A100977C86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD3F26AC2A2899A100977C86 /* Assets.xcassets */; };
@@ -78,6 +79,7 @@
 		DD226B8D2A4C38D30007C9DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DD226B902A4C43CD0007C9DD /* Extension + string.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + string.swift"; sourceTree = "<group>"; };
 		DD226B922A4C462E0007C9DD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DD226B932A5029350007C9DD /* WaterControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterControlView.swift; sourceTree = "<group>"; };
 		DD3F26A52A2899A000977C86 /* HealthyLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthyLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3F26A82A2899A000977C86 /* HealthyLifeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthyLifeApp.swift; sourceTree = "<group>"; };
 		DD3F26AA2A2899A000977C86 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				DD3F26CF2A28B19900977C86 /* LikeView.swift */,
+				DD226B932A5029350007C9DD /* WaterControlView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				DD2192912A2F300F0074B9E1 /* SignInView.swift in Sources */,
 				DD194E562A2A01DB00BB6665 /* PostView.swift in Sources */,
 				DD226B802A43108C0007C9DD /* SelectTheDesiredWindowCalculateView.swift in Sources */,
+				DD226B942A5029350007C9DD /* WaterControlView.swift in Sources */,
 				DD226B892A4AFDD80007C9DD /* AppDelegate.swift in Sources */,
 				DD3F26A92A2899A000977C86 /* HealthyLifeApp.swift in Sources */,
 				DD194E5C2A2DDC0F00BB6665 /* CustomEditText.swift in Sources */,
