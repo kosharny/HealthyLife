@@ -74,7 +74,7 @@ extension ContentView {
                                 case .calculator:
 //                                    CalculatorView()
                                     SelectTheDesiredWindowCalculateView()
-                                case .like:
+                                case .raindrop:
                                         WaterControlView()
                                 case .account:
                                         SelectTheDesiredWindowView()

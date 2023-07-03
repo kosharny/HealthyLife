@@ -10,7 +10,7 @@ import SwiftUI
 enum Tab: String, CaseIterable {
     case main
     case calculator
-    case like
+    case raindrop
     case account
 }
 

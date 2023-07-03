@@ -54,7 +54,11 @@ struct login: UIViewRepresentable {
                     let name = String(result!.user.email?.dropLast(10) ?? "")
                     let data = ["email": result!.user.email,
                                 "name": name,
-                                "uid": user.uid]
+                                "uid": user.uid,
+                                "calorie": 0,
+                                "speedResult": 0,
+                                "lightResult": 0,
+                                "waterNeeded": 0.0] as [String : Any]
                     
                     Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in
 //                        self.didAuthUser = true

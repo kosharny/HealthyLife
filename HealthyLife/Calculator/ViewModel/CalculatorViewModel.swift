@@ -42,12 +42,13 @@ class CalculatorViewModel: ObservableObject  {
         default:
             calorie = result
         }
+        let waterNeeded = Decimal(weight * 0.035)
         let speedResult = Int(calorie * 0.6)
         let lightResult = Int(calorie * 0.8)
-        updateValueInFirestoreCollection(newValue: Int(calorie), speedResult: speedResult, lightResult: lightResult)
+        updateValueInFirestoreCollection(newValue: Int(calorie), speedResult: speedResult, lightResult: lightResult, waterNeeded: waterNeeded)
     }
     
-    func updateValueInFirestoreCollection(newValue: Int, speedResult: Int, lightResult: Int) {
+    func updateValueInFirestoreCollection(newValue: Int, speedResult: Int, lightResult: Int, waterNeeded: Decimal) {
         
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let db = Firestore.firestore()
@@ -84,6 +85,13 @@ class CalculatorViewModel: ObservableObject  {
                     }
                 }
                 documentRef.updateData(["lightResult": lightResult]) { error in
+                    if let error = error {
+                        print("Ошибка при обновлении значения параметра: \(error.localizedDescription)")
+                    } else {
+                        print("Значение параметра успешно обновлено.")
+                    }
+                }
+                documentRef.updateData(["waterNeeded": waterNeeded]) { error in
                     if let error = error {
                         print("Ошибка при обновлении значения параметра: \(error.localizedDescription)")
                     } else {

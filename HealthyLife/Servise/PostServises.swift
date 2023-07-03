@@ -69,7 +69,8 @@ struct PostServises {
         let data = ["uid": uid,
                     "titleName": titleName,
                     "imageName": imageName,
-                    "textLabel": textLabel] as [String: Any]
+                    "textLabel": textLabel,
+                    "titleNameEn": ""] as [String: Any]
         
         Firestore.firestore().collection("users").document(uid).collection("user-likes").document()
             .setData(data) { error in

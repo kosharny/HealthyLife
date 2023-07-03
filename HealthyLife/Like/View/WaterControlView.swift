@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct WaterControlView: View {
+    
+    @EnvironmentObject var viewModel: AuthViewModel
+    @State private var waterNeeded: Decimal = 0.0
+    @State private var water: Decimal = 0.1
+    
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(stops: [
@@ -44,16 +49,25 @@ struct WaterControlView: View {
                         .frame(width: UIScreen.main.bounds.width*0.75 ,height: UIScreen.main.bounds.height/9)
                         .foregroundColor(.white)
                         .shadow(radius: 16)
-                    Text("Среднестатистическому человеку нужно пить 2.5 л воды вдень")
-                        .padding()
-                        .frame(width: UIScreen.main.bounds.width*0.75 ,height: UIScreen.main.bounds.height/9)
-                        .multilineTextAlignment(.center)
-                        .font(Font.custom("monserat", size: 20))
-                        .foregroundColor(Color("text2color"))
+                    if viewModel.userSession != nil && viewModel.currenUser?.waterNeeded != 0.0 {
+                        Text("Вам нужно выпивать " + "\(viewModel.currenUser!.waterNeeded)" + "л воды в день")
+                            .padding()
+                            .frame(width: UIScreen.main.bounds.width*0.75 ,height: UIScreen.main.bounds.height/9)
+                            .multilineTextAlignment(.center)
+                            .font(Font.custom("monserat", size: 20))
+                            .foregroundColor(Color("text2color"))
+                    } else {
+                        Text("Среднестатистическому человеку нужно пить 2.5 л воды в день")
+                            .padding()
+                            .frame(width: UIScreen.main.bounds.width*0.75 ,height: UIScreen.main.bounds.height/9)
+                            .multilineTextAlignment(.center)
+                            .font(Font.custom("monserat", size: 20))
+                            .foregroundColor(Color("text2color"))
+                    }
                 }
                 HStack {
                     Button {
-                        //minus 0.5 l
+                        water -= 0.1
                     } label: {
                         ZStack {
                             Circle()
@@ -75,7 +89,7 @@ struct WaterControlView: View {
                                 .frame(width: UIScreen.main.bounds.width*0.3,height: UIScreen.main.bounds.height/13)
                                 .foregroundColor(.white)
                                 .shadow(radius: 16)
-                        Text("0.5 л")
+                        Text("\(water)" + " л")
                             .multilineTextAlignment(.center)
                             .font(Font.custom("monserat", size: 32))
                             .foregroundColor(Color("text2color"))
@@ -84,7 +98,7 @@ struct WaterControlView: View {
                     Spacer()
                     
                     Button {
-                        //plus 0.5 l
+                        water += 0.1
                     } label: {
                         ZStack {
                             Circle()
@@ -101,7 +115,9 @@ struct WaterControlView: View {
                 }
                 
                 Button {
-                    // add water
+                    waterNeeded = waterNeeded + water
+                    water = 0.1
+                    print("\(waterNeeded)")
                 } label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 16)

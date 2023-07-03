@@ -68,3 +68,11 @@
 "обед" = "dinner";
 
 "Сохраненно" = "Saved";
+
+"КОНТРОЛЬ" = "CONTROL";
+"ВОДЫ" = "WATER";
+"Вам нужно выпивать " = "You need a drink ";
+"л воды в день" = "l of water per day";
+"Среднестатистическому человеку нужно пить 2.5 л воды в день" = "The average person needs to drink 2.5 liters of water a day";
+" л" = " l";
+"ВЫПИТЬ!" = "DRINK UP!";
