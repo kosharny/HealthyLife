@@ -54,7 +54,8 @@ class AuthViewModel: ObservableObject {
                         "calorie": 0,
                         "speedResult": 0,
                         "lightResult": 0,
-                        "waterNeeded": 0.0] as [String : Any]
+                        "waterNeeded": 0.0,
+                        "drunkWater": 0.0] as [String : Any]
             
             Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in
                 self.didAuthUser = true
@@ -118,7 +119,8 @@ class AuthViewModel: ObservableObject {
                             "calorie": 0,
                             "speedResult": 0,
                             "lightResult": 0,
-                            "waterNeeded": 0.0] as [String : Any]
+                            "waterNeeded": 0.0,
+                            "drunkWater": 0.0] as [String : Any]
                 
                 Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in
                     self.didAuthUser = true

@@ -41,6 +41,8 @@
 		DD226B8C2A4C38D30007C9DD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD226B8E2A4C38D30007C9DD /* Localizable.strings */; };
 		DD226B912A4C43CD0007C9DD /* Extension + string.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD226B902A4C43CD0007C9DD /* Extension + string.swift */; };
 		DD226B942A5029350007C9DD /* WaterControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD226B932A5029350007C9DD /* WaterControlView.swift */; };
+		DD226B962A5425740007C9DD /* DailyReset.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD226B952A5425740007C9DD /* DailyReset.swift */; };
+		DD226B982A54274E0007C9DD /* WaterControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD226B972A54274E0007C9DD /* WaterControlViewModel.swift */; };
 		DD3F26A92A2899A000977C86 /* HealthyLifeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3F26A82A2899A000977C86 /* HealthyLifeApp.swift */; };
 		DD3F26AB2A2899A000977C86 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3F26AA2A2899A000977C86 /* ContentView.swift */; };
 		DD3F26AD2A2899A100977C86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD3F26AC2A2899A100977C86 /* Assets.xcassets */; };
@@ -80,6 +82,8 @@
 		DD226B902A4C43CD0007C9DD /* Extension + string.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + string.swift"; sourceTree = "<group>"; };
 		DD226B922A4C462E0007C9DD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DD226B932A5029350007C9DD /* WaterControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterControlView.swift; sourceTree = "<group>"; };
+		DD226B952A5425740007C9DD /* DailyReset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReset.swift; sourceTree = "<group>"; };
+		DD226B972A54274E0007C9DD /* WaterControlViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterControlViewModel.swift; sourceTree = "<group>"; };
 		DD3F26A52A2899A000977C86 /* HealthyLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthyLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3F26A82A2899A000977C86 /* HealthyLifeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthyLifeApp.swift; sourceTree = "<group>"; };
 		DD3F26AA2A2899A000977C86 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -137,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				DD226B752A33360E0007C9DD /* LikeViewModel.swift */,
+				DD226B972A54274E0007C9DD /* WaterControlViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 			children = (
 				DD226B662A308B6C0007C9DD /* PostServises.swift */,
 				DD226B6D2A30968C0007C9DD /* UserServise.swift */,
+				DD226B952A5425740007C9DD /* DailyReset.swift */,
 			);
 			path = Servise;
 			sourceTree = "<group>";
@@ -436,6 +442,7 @@
 				DD3F26CC2A28AB2100977C86 /* CustomTabBar.swift in Sources */,
 				DD3F26CE2A28B18000977C86 /* CalculatorView.swift in Sources */,
 				DD21928F2A2F30020074B9E1 /* RegisterView.swift in Sources */,
+				DD226B982A54274E0007C9DD /* WaterControlViewModel.swift in Sources */,
 				DD3F26BF2A289C3C00977C86 /* MainMenuView.swift in Sources */,
 				DD226B7B2A35AD790007C9DD /* SelectTheDesiredWindowView.swift in Sources */,
 				DD3F26D02A28B19900977C86 /* LikeView.swift in Sources */,
@@ -454,6 +461,7 @@
 				DD3F26A92A2899A000977C86 /* HealthyLifeApp.swift in Sources */,
 				DD194E5C2A2DDC0F00BB6665 /* CustomEditText.swift in Sources */,
 				DD194E582A2A020000BB6665 /* PostCell.swift in Sources */,
+				DD226B962A5425740007C9DD /* DailyReset.swift in Sources */,
 				DD226B6C2A30965F0007C9DD /* User.swift in Sources */,
 				DD194E5E2A2DF83500BB6665 /* PostInfo.swift in Sources */,
 			);

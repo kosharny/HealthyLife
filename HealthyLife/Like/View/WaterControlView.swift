@@ -13,6 +13,14 @@ struct WaterControlView: View {
     @State private var waterNeeded: Decimal = 0.0
     @State private var water: Decimal = 0.1
     
+    @ObservedObject var waterControlViewModel = WaterControlViewModel()
+    @State private var drunkWater: Decimal = 0
+       private var dailyReset: DailyReset?
+       
+       init() {
+           dailyReset = DailyReset()
+       }
+    
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(stops: [
@@ -40,8 +48,11 @@ struct WaterControlView: View {
                     Image("waterControlBg")
                     Image("waterControl")
                         .shadow(radius: 16)
-                    Image("water")
-                        .padding(.top, 120)
+//                    Image("water")
+//                        .padding(.top, 120)
+                    Text(drunkWater.description)
+                        .font(Font.custom("monserat", size: 32))
+                        .foregroundColor(Color("text2color"))
                 }
                 
                 ZStack {
@@ -115,9 +126,10 @@ struct WaterControlView: View {
                 }
                 
                 Button {
-                    waterNeeded = waterNeeded + water
+                    drunkWater = drunkWater + water
+                    waterControlViewModel.updateValueInFirestoreCollection(drunkWater: drunkWater)
                     water = 0.1
-                    print("\(waterNeeded)")
+                    print("\(drunkWater)")
                 } label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 16)

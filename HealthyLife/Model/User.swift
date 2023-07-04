@@ -16,5 +16,6 @@ struct User: Identifiable, Decodable {
     var speedResult = 0
     var lightResult = 0
     var waterNeeded: Decimal = 0.0
+    var drunkWater: Decimal = 0.0
     var isCurrentUser: Bool { return Auth.auth().currentUser?.uid == id }
 }
