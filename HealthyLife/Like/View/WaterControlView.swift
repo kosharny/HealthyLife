@@ -9,8 +9,10 @@ import SwiftUI
 
 struct WaterControlView: View {
     
+    let impactGenerator = UIImpactFeedbackGenerator(style: .rigid)
     @EnvironmentObject var viewModel: AuthViewModel
-    @State private var waterNeeded: Decimal = 0.0
+    @State private var waterNeeded: Decimal = 2.5
+    @State private var waterProcent: Decimal = 0.0
     @State private var water: Decimal = 0.1
     
     @ObservedObject var waterControlViewModel = WaterControlViewModel()
@@ -48,11 +50,40 @@ struct WaterControlView: View {
                     Image("waterControlBg")
                     Image("waterControl")
                         .shadow(radius: 16)
-//                    Image("water")
-//                        .padding(.top, 120)
-                    Text(drunkWater.description)
-                        .font(Font.custom("monserat", size: 32))
-                        .foregroundColor(Color("text2color"))
+                    if waterProcent <= 0.2 {
+                        
+                    } else if waterProcent <= 0.5 {
+                        Image("water")
+                            .padding(.top, 120)
+                    } else if waterProcent <= 0.75 {
+                        Image("water")
+                            .padding(.top, 120)
+                        Image("50waterdrunk")
+                            .padding(.top, 20)
+                    } else if waterProcent <= 0.9 {
+                        Image("water")
+                            .padding(.top, 120)
+                        Image("50waterdrunk")
+                            .padding(.top, 20)
+                        Image("75waterdrunk")
+                            .padding(.top, -60)
+                    } else {
+                        Image("water")
+                            .padding(.top, 120)
+                        Image("50waterdrunk")
+                            .padding(.top, 20)
+                        Image("75waterdrunk")
+                            .padding(.top, -60)
+                        Image("100waterdrunk")
+                            .padding(.top, -125)
+                    }
+                    
+                    
+                    Text(drunkWater.description + " л")
+                        .padding(.top, 60)
+                        .font(Font.custom("monserat", size: 56))
+                        .foregroundColor(.white)
+                        .shadow(radius: 16)
                 }
                 
                 ZStack {
@@ -79,6 +110,9 @@ struct WaterControlView: View {
                 HStack {
                     Button {
                         water -= 0.1
+                        withAnimation(Animation.linear) {
+                            impactGenerator.impactOccurred()
+                        }
                     } label: {
                         ZStack {
                             Circle()
@@ -110,6 +144,9 @@ struct WaterControlView: View {
                     
                     Button {
                         water += 0.1
+                        withAnimation(Animation.linear) {
+                            impactGenerator.impactOccurred()
+                        }
                     } label: {
                         ZStack {
                             Circle()
@@ -129,11 +166,18 @@ struct WaterControlView: View {
                     drunkWater = drunkWater + water
                     waterControlViewModel.updateValueInFirestoreCollection(drunkWater: drunkWater)
                     water = 0.1
+                    if viewModel.userSession != nil && viewModel.currenUser?.waterNeeded != 0.0 {
+                        waterNeeded = viewModel.currenUser!.waterNeeded
+                    }
+                    withAnimation(Animation.linear) {
+                        waterProcent = drunkWater/waterNeeded
+                        impactGenerator.impactOccurred()
+                    }
                     print("\(drunkWater)")
                 } label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 16)
-                            .frame(width: UIScreen.main.bounds.width*0.7, height: UIScreen.main.bounds.height/12)
+                            .frame(width: UIScreen.main.bounds.width*0.7, height: UIScreen.main.bounds.height/15)
                             .foregroundColor(Color("waterBt"))
                             .shadow(radius: 16)
                         Text("ВЫПИТЬ!")
@@ -146,6 +190,13 @@ struct WaterControlView: View {
 
                 Spacer()
             }
+        }
+        .onAppear {
+            drunkWater = viewModel.currenUser?.drunkWater ?? 0
+            if viewModel.userSession != nil && viewModel.currenUser?.waterNeeded != 0.0 {
+                waterNeeded = viewModel.currenUser!.waterNeeded
+            }
+            waterProcent = drunkWater/waterNeeded
         }
     }
 }
