@@ -17,11 +17,10 @@ struct WaterControlView: View {
     
     @ObservedObject var waterControlViewModel = WaterControlViewModel()
     @State private var drunkWater: Decimal = 0
-       private var dailyReset: DailyReset?
        
-       init() {
-           dailyReset = DailyReset()
-       }
+//       init() {
+//           dailyReset = DailyReset()
+//       }
     
     var body: some View {
         ZStack {

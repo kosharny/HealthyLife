@@ -75,6 +75,26 @@ struct AccountView: View {
                     .padding(.top, 25)
                 }
                 
+                NavigationLink {
+                        SettingView()
+                } label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 16)
+                            .frame(height: UIScreen.main.bounds.height/20)
+                            .foregroundColor(.white)
+                            .shadow(radius: 8)
+                        HStack {
+                            Text("Настройки")
+                                .font(Font.custom("monserat", size: 20).bold())
+                                .foregroundColor(Color("text2color"))
+                                .padding(.horizontal)
+                            Spacer()
+                        }
+                        .padding(.horizontal)
+                    }
+                    .padding(.top, 25)
+                }
+                
                 Spacer()
                     
                     Button {

@@ -14,6 +14,7 @@ struct HealthyLifeApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject var viewModel = AuthViewModel()
+    @StateObject  private var dailyReset = DailyReset()
     
     init() {
         FirebaseApp.configure()
@@ -24,6 +25,7 @@ struct HealthyLifeApp: App {
             LaunchScreen()
                 .preferredColorScheme(.light)
                 .environmentObject(viewModel)
+                .environmentObject(dailyReset)
         }
     }
 }
