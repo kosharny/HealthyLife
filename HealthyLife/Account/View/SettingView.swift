@@ -11,21 +11,24 @@ struct SettingView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    let genderFilter = ["English", "Русский"]
-    @State private var gender = "Русский"
+    @EnvironmentObject var viewModel: AuthViewModel
+    let langFilter = ["English", "Русский"]
+    @State private var lang = "Русский"
     @State private var name = ""
+    @State private var selectedLanguage = UserDefaults.standard.string(forKey: "selectedLanguage") ?? "en"
+    
     
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
                     Spacer()
-                        HStack(spacing: 0) {
-                            Text("Настройки")
-                                .font(Font.custom("monserat", size: 30).bold())
-                                .foregroundColor(Color("text2color"))
-                        }
-                        .padding(.horizontal, 30)
+                    HStack(spacing: 0) {
+                        Text("Настройки")
+                            .font(Font.custom("monserat", size: 30).bold())
+                            .foregroundColor(Color("text2color"))
+                    }
+                    .padding(.horizontal, 30)
                 }
                 
                 Divider()
@@ -43,9 +46,9 @@ struct SettingView: View {
                         
                         Menu {
                             ZStack {
-                                ForEach(genderFilter, id: \.self) { option in
+                                ForEach(langFilter, id: \.self) { option in
                                     Button {
-                                        self.gender = option
+                                        self.lang = option
                                     } label: {
                                         Text(option.localized())
                                     }
@@ -60,19 +63,32 @@ struct SettingView: View {
                                     .stroke(Color("text2color"), lineWidth: 1)
                                     .foregroundColor(.white)
                                     .frame(width: UIScreen.main.bounds.width/3.5, height: UIScreen.main.bounds.height/24)
-//                                    .shadow(radius: 8)
-                                Text(gender.localized())
+                                //                                    .shadow(radius: 8)
+                                Text(lang.localized())
                                     .font(Font.custom("monserat", size: 20))
                                     .foregroundColor(Color("text2color"))
                                 
                                 
                             }
-//                            .padding(.horizontal, 40)
+                            //                            .padding(.horizontal, 40)
                             
                         }
+                        Spacer()
                         
+                        Button {
+                            var newLanguage = "en"
+                            if lang == "Русский" {
+                                newLanguage = "ru"
+                            } else {
+                                newLanguage = "en"
+                            }
+                            viewModel.changeLanguage(to: newLanguage)
+                        } label: {
+                            Image(systemName: "checkmark.circle")
+                                .foregroundColor(Color("text2color"))
+                        }
                     }
-//                    .padding(.top, 8)
+                    //                    .padding(.top, 8)
                     .padding(.horizontal, 50)
                 }
                 .padding(.top, 60)
@@ -92,20 +108,29 @@ struct SettingView: View {
                                 .stroke(Color("text2color"), lineWidth: 1)
                                 .foregroundColor(.white)
                                 .frame(width: UIScreen.main.bounds.width/3.5, height: UIScreen.main.bounds.height/24)
-                            TextField("Ладик", text: $name)
+                            TextField(viewModel.currenUser?.name ?? "Имя не установлено", text: $name)
                                 .font(Font.custom("monserat", size: 20))
                                 .foregroundColor(Color("text2color"))
                                 .frame(width: UIScreen.main.bounds.width/5, height: UIScreen.main.bounds.height/24)
                         }
+                        Spacer()
+                        
+                        Button {
+                            viewModel.updateValueInFirestoreCollection(name: name)
+                        } label: {
+                            Image(systemName: "checkmark.circle")
+                                .foregroundColor(Color("text2color"))
+                        }
+                        
                         
                     }
-//                    .padding(.top, 8)
+                    //                    .padding(.top, 8)
                     .padding(.horizontal, 50)
                 }
                 .padding(.top)
                 
                 Button {
-                    //delete account
+                    viewModel.delete()
                 } label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 16)
@@ -119,7 +144,7 @@ struct SettingView: View {
                     }
                     .padding(.top)
                 }
-
+                
                 Spacer()
             }
         }

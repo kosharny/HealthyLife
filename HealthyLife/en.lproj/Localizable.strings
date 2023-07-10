@@ -76,3 +76,9 @@
 "Среднестатистическому человеку нужно пить 2.5 л воды в день" = "The average person needs to drink 2.5 liters of water a day";
 " л" = " l";
 "ВЫПИТЬ!" = "DRINK UP!";
+
+"Настройки" = "Settings";
+"Язык:" = "Language:";
+"Имя пользователя" = "Username";
+"Имя не установлено" = "Name not set";
+"Удалить аккаунт" = "Delete account";

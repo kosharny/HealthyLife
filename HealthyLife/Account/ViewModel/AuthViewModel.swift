@@ -71,6 +71,18 @@ class AuthViewModel: ObservableObject {
         try? Auth.auth().signOut()
     }
     
+    func delete() {
+        guard let currentUser = Auth.auth().currentUser else { return }
+
+        currentUser.delete { error in
+            if let error = error {
+                print("Ошибка удаления аккаунта: \(error.localizedDescription)")
+            } else {
+                print("Аккаунт успешно удален")
+            }
+        }
+    }
+    
     func fetchUser() {
         guard let uid = self.userSession?.uid else { return }
         
@@ -128,5 +140,73 @@ class AuthViewModel: ObservableObject {
                 self.userSession = user
             }
         }
+    }
+    
+    func updateValueInFirestoreCollection(name: String) {
+        
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let db = Firestore.firestore()
+        let collectionRef = db.collection("users")
+        let documentRef = collectionRef.document(uid)
+        
+        documentRef.getDocument { (document, error) in
+            if let error = error {
+                print("Ошибка при получении документа: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let document = document, document.exists else {
+                print("Документ с идентификатором \(uid) не найден в коллекции users.")
+                return
+            }
+            
+            if document.data()?["calorie"] != nil {
+                // Здесь предполагается, что параметр существует в документе
+                
+                // Обновляем значение параметра
+                documentRef.updateData(["name": name]) { error in
+                    if let error = error {
+                        print("Ошибка при обновлении значения параметра: \(error.localizedDescription)")
+                    } else {
+                        print("Значение параметра успешно обновлено.")
+                    }
+                }
+            } else {
+                print("Параметр calorie не найден в документе.")
+            }
+        }
+    }
+    
+    
+    func changeLanguage(to languageCode: String) {
+        // Устанавливаем выбранный язык приложения
+        UserDefaults.standard.set([languageCode], forKey: "AppleLanguages")
+        UserDefaults.standard.synchronize()
+        
+//        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+//                          let windowDelegate = windowScene.delegate as? SceneDelegate {
+//                           windowDelegate.window?.rootViewController = UIHostingController(rootView: ContentView())
+//                       }
+        if let window = UIApplication.shared.windows.first {
+            window.rootViewController = UIHostingController(rootView: ContentView())
+            window.makeKeyAndVisible()
+        }
+//        // Перестраиваем представление приложения
+//        if #available(iOS 14.0, *) {
+//            // Для iOS 14 и новее используем App struct
+//            @main
+//            struct HealthyLifeApp: App {
+//                @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+//
+//                var body: some Scene {
+//                    WindowGroup {
+//                        ContentView()
+//                    }
+//                }
+//            }
+//        } else {
+//            // Для более ранних версий iOS используем SceneDelegate
+//            UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: ContentView())
+//        }
     }
 }

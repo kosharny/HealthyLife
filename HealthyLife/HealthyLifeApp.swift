@@ -14,7 +14,7 @@ struct HealthyLifeApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject var viewModel = AuthViewModel()
-    @StateObject  private var dailyReset = DailyReset()
+    @StateObject  var dailyReset = DailyReset()
     
     init() {
         FirebaseApp.configure()
