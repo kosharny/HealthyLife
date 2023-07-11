@@ -64,10 +64,8 @@ class AuthViewModel: ObservableObject {
     }
     
     func signOut() {
-        // sets user session to nil so we show login view
         userSession = nil
         
-        // signs user out on server
         try? Auth.auth().signOut()
     }
     
@@ -161,9 +159,6 @@ class AuthViewModel: ObservableObject {
             }
             
             if document.data()?["calorie"] != nil {
-                // Здесь предполагается, что параметр существует в документе
-                
-                // Обновляем значение параметра
                 documentRef.updateData(["name": name]) { error in
                     if let error = error {
                         print("Ошибка при обновлении значения параметра: \(error.localizedDescription)")
@@ -175,38 +170,5 @@ class AuthViewModel: ObservableObject {
                 print("Параметр calorie не найден в документе.")
             }
         }
-    }
-    
-    
-    func changeLanguage(to languageCode: String) {
-        // Устанавливаем выбранный язык приложения
-        UserDefaults.standard.set([languageCode], forKey: "AppleLanguages")
-        UserDefaults.standard.synchronize()
-        
-//        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-//                          let windowDelegate = windowScene.delegate as? SceneDelegate {
-//                           windowDelegate.window?.rootViewController = UIHostingController(rootView: ContentView())
-//                       }
-        if let window = UIApplication.shared.windows.first {
-            window.rootViewController = UIHostingController(rootView: ContentView())
-            window.makeKeyAndVisible()
-        }
-//        // Перестраиваем представление приложения
-//        if #available(iOS 14.0, *) {
-//            // Для iOS 14 и новее используем App struct
-//            @main
-//            struct HealthyLifeApp: App {
-//                @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-//
-//                var body: some Scene {
-//                    WindowGroup {
-//                        ContentView()
-//                    }
-//                }
-//            }
-//        } else {
-//            // Для более ранних версий iOS используем SceneDelegate
-//            UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: ContentView())
-//        }
     }
 }

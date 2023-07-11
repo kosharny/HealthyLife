@@ -10,9 +10,12 @@ import SwiftUI
 struct CalculatorViewResult: View {
     
     @Environment(\.presentationMode) var presentationMode
+    
+    @ObservedObject var viewModel = CalculatorViewModel()
     let calorie: Int
     let speedResult: Int
     let lightResult: Int
+    @State private var isCalculatorResult = false
     
     
     var body: some View {
@@ -41,8 +44,29 @@ struct CalculatorViewResult: View {
                         }
                         optionView
                         tableDiet
-                        Spacer()
                         
+                        Button {
+                            viewModel.resetValueInFirestoreCollection()
+                            isCalculatorResult.toggle()
+                        } label: {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 16)
+                                    .foregroundColor(.white)
+                                    .frame(width: UIScreen.main.bounds.width*0.92, height: UIScreen.main.bounds.height/16)
+                                    .shadow(radius: 16)
+                                
+                                Text("СБРОСИТЬ")
+                                    .font(Font.custom("monserat", size: 22))
+                                    .foregroundColor(.red)
+                            }
+//                            .padding(.top)
+                            .padding(.bottom, 100)
+                        }
+                        .navigationDestination(isPresented: $isCalculatorResult) {
+                            CalculatorView()
+                        }
+                        
+                        Spacer()
                     }
                     .padding(.top, UIScreen.main.bounds.height/20)
                 }
@@ -492,6 +516,5 @@ extension CalculatorViewResult {
 //            .padding(.bottom, 80)
         }
         .padding()
-        .padding(.bottom, 80)
     }
 }

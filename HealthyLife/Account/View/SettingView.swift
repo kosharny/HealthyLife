@@ -33,65 +33,25 @@ struct SettingView: View {
                 
                 Divider()
                     .overlay(Color("text2color"))
-                ZStack {
-                    RoundedRectangle(cornerRadius: 16)
-                        .foregroundColor(.white)
-                        .frame(width: UIScreen.main.bounds.width*0.95, height: UIScreen.main.bounds.height/16)
-                        .shadow(radius: 16)
-                    HStack {
-                        Text("Язык:")
-                            .font(Font.custom("monserat", size: 22))
-                            .foregroundColor(Color("text2color"))
-                        Spacer()
-                        
-                        Menu {
-                            ZStack {
-                                ForEach(langFilter, id: \.self) { option in
-                                    Button {
-                                        self.lang = option
-                                    } label: {
-                                        Text(option.localized())
-                                    }
-                                }
-                            }
-                            .foregroundColor(.black)
-                            .menuStyle(BorderlessButtonMenuStyle())
-                            .padding()
-                        } label: {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 16)
-                                    .stroke(Color("text2color"), lineWidth: 1)
-                                    .foregroundColor(.white)
-                                    .frame(width: UIScreen.main.bounds.width/3.5, height: UIScreen.main.bounds.height/24)
-                                //                                    .shadow(radius: 8)
-                                Text(lang.localized())
-                                    .font(Font.custom("monserat", size: 20))
-                                    .foregroundColor(Color("text2color"))
-                                
-                                
-                            }
-                            //                            .padding(.horizontal, 40)
-                            
-                        }
-                        Spacer()
-                        
-                        Button {
-                            var newLanguage = "en"
-                            if lang == "Русский" {
-                                newLanguage = "ru"
-                            } else {
-                                newLanguage = "en"
-                            }
-                            viewModel.changeLanguage(to: newLanguage)
-                        } label: {
-                            Image(systemName: "checkmark.circle")
-                                .foregroundColor(Color("text2color"))
-                        }
+
+                Button {
+                    if let url = URL(string: UIApplication.openSettingsURLString) {
+                        UIApplication.shared.open(url)
                     }
-                    //                    .padding(.top, 8)
-                    .padding(.horizontal, 50)
+                } label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 16)
+                            .foregroundColor(.white)
+                            .frame(width: UIScreen.main.bounds.width*0.95, height: UIScreen.main.bounds.height/16)
+                            .shadow(radius: 16)
+                        
+                        Text("Сменить язык")
+                            .font(Font.custom("monserat", size: 22))
+                            .foregroundColor(.blue)
+                    }
+                    .padding(.top)
                 }
-                .padding(.top, 60)
+                .padding(.top)
                 
                 ZStack {
                     RoundedRectangle(cornerRadius: 16)
@@ -124,7 +84,6 @@ struct SettingView: View {
                         
                         
                     }
-                    //                    .padding(.top, 8)
                     .padding(.horizontal, 50)
                 }
                 .padding(.top)
@@ -149,7 +108,6 @@ struct SettingView: View {
             }
         }
         .navigationBarItems(leading: Button(action: {
-            // Возврат на предыдущую View при нажатии кнопки "Назад" в навигационной панели
             presentationMode.wrappedValue.dismiss()
         }) {
             Image(systemName: "chevron.left")

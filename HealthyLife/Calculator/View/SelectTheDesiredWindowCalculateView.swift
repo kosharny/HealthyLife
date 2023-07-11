@@ -13,7 +13,7 @@ struct SelectTheDesiredWindowCalculateView: View {
     var body: some View {
         if viewModel.userSession == nil && viewModel.currenUser?.calorie == 0 {
             CalculatorView()
-        } else if viewModel.currenUser?.calorie == nil {
+        } else if viewModel.currenUser?.calorie == nil || viewModel.currenUser?.calorie == 0 {
             CalculatorView()
         } else {
             CalculatorViewResult(calorie: viewModel.currenUser!.calorie, speedResult: viewModel.currenUser!.speedResult, lightResult: viewModel.currenUser!.lightResult)

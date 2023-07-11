@@ -268,7 +268,6 @@ extension CalculatorView {
                 .padding(.top, 20)
             }
             .navigationDestination(isPresented: $isCalculatorResult) {
-                
                 CalculatorViewResult(calorie: calorie, speedResult: speedResult, lightResult: lightResult)
             }
         }
