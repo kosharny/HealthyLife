@@ -13,6 +13,7 @@ struct MainMenuView: View {
     
     @State private var refresh = Refresh(started: false, released: false)
     let impactGenerator = UIImpactFeedbackGenerator(style: .rigid)
+    @State private var post: PostInfo?
     @State private var showModal = false
     @State private var selectedButtonIndex: Int = 0
     //    var color = Color("colorGrayBg")
@@ -21,7 +22,8 @@ struct MainMenuView: View {
         "все",
         "завтрак",
         "десерты",
-        "обед"
+        "обед",
+        "салаты"
     ]
     
     init() {
@@ -106,6 +108,12 @@ struct MainMenuView: View {
                         withAnimation(Animation.linear) {
                             impactGenerator.impactOccurred()
                             showModal = true
+                            
+                            if languageCode == "ru" {
+                                self.post = PostInfo(imageName: post.imageName, textLabel: post.textLabel ?? "" , titleName: post.titleName, titleNameEn: post.titleNameEn)
+                            } else {
+                                self.post = PostInfo(imageName: post.imageName, textLabel: post.textLabelEn ?? "" , titleName: post.titleNameEn, titleNameEn: post.titleNameEn)
+                            }
                         }
                     } label: {
                         if languageCode == "ru" {
@@ -115,11 +123,13 @@ struct MainMenuView: View {
                         }
                     }
                     //item
-                    .sheet(isPresented: $showModal) {
+                    .sheet(item: $post) { post in
                         if languageCode == "ru" {
-                            PostView(post: PostInfo(imageName: post.imageName, textLabel: post.textLabel ?? "" , titleName: post.titleName, titleNameEn: post.titleNameEn))
+                            PostView(post: post)
+//                            PostView(post: PostInfo(imageName: post.imageName, textLabel: post.textLabel ?? "" , titleName: post.titleName, titleNameEn: post.titleNameEn))
                         } else {
-                            PostView(post: PostInfo(imageName: post.imageName, textLabel: post.textLabelEn ?? "" , titleName: post.titleNameEn, titleNameEn: post.titleNameEn))
+                            PostView(post: post)
+//                            PostView(post: PostInfo(imageName: post.imageName, textLabel: post.textLabelEn ?? "" , titleName: post.titleNameEn, titleNameEn: post.titleNameEn))
                         }
                     }
                 }
