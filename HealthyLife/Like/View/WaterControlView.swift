@@ -18,9 +18,6 @@ struct WaterControlView: View {
     @ObservedObject var waterControlViewModel = WaterControlViewModel()
     @State private var drunkWater: Decimal = 0
        
-//       init() {
-//           dailyReset = DailyReset()
-//       }
     
     var body: some View {
         ZStack {
@@ -129,16 +126,16 @@ struct WaterControlView: View {
                     Spacer()
                     
                     ZStack {
-                            RoundedRectangle(cornerRadius: 16)
-                                .frame(width: UIScreen.main.bounds.width*0.3,height: UIScreen.main.bounds.height/13)
-                                .foregroundColor(.white)
-                                .shadow(radius: 16)
+                        RoundedRectangle(cornerRadius: 16)
+                            .frame(width: UIScreen.main.bounds.width*0.3,height: UIScreen.main.bounds.height/13)
+                            .foregroundColor(.white)
+                            .shadow(radius: 16)
                         Text("\(water)" + " л")
                             .multilineTextAlignment(.center)
                             .font(Font.custom("monserat", size: 32))
                             .foregroundColor(Color("text2color"))
                     }
-
+                    
                     Spacer()
                     
                     Button {
@@ -160,6 +157,26 @@ struct WaterControlView: View {
                         .padding(.trailing, 35)
                     }
                 }
+                HStack {
+                    Button {
+                        withAnimation(Animation.linear) {
+                            waterControlViewModel.resetDrunkWaterValueInFirestoreCollection()
+                            waterProcent = 0
+                            drunkWater = 0
+                            impactGenerator.impactOccurred()
+                        }
+                    } label: {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 16)
+                                .frame(width: UIScreen.main.bounds.width*0.17, height: UIScreen.main.bounds.height/15)
+                                .foregroundColor(.red)
+                                .shadow(radius: 16)
+                            Image(systemName: "gobackward")
+                                .foregroundColor(.white)
+                            
+                        }
+                    }
+
                 
                 Button {
                     drunkWater = drunkWater + water
@@ -176,7 +193,7 @@ struct WaterControlView: View {
                 } label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 16)
-                            .frame(width: UIScreen.main.bounds.width*0.7, height: UIScreen.main.bounds.height/15)
+                            .frame(width: UIScreen.main.bounds.width*0.6, height: UIScreen.main.bounds.height/15)
                             .foregroundColor(Color("waterBt"))
                             .shadow(radius: 16)
                         Text("ВЫПИТЬ!")
@@ -186,7 +203,7 @@ struct WaterControlView: View {
                         
                     }
                 }
-
+            }
                 Spacer()
             }
         }

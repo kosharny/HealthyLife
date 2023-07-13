@@ -10,19 +10,10 @@ import Kingfisher
 
 struct PostView: View {
     
-    
-//    @ObservedObject var viewModel: LikeViewModel
     @State private var showAlert = false
     var post = PostInfo(imageName: "", titleName: "", titleNameEn: "")
     let impactGenerator = UIImpactFeedbackGenerator(style: .rigid)
-    
-    
-//    @Published var post: PostInfo
     let servise = PostServises()
-    
-//    init(post: PostInfo) {
-//        self.viewModel = LikeViewModel(post: post)
-//    }
     
     var body: some View {
         ZStack {
@@ -30,25 +21,12 @@ struct PostView: View {
                 VStack {
                     
                     KFImage(URL(string: post.imageName))
-                    //                    .onProgress { receivedSize, totalSize in
-                    //                                    if !self.isLoading {
-                    //                                        self.isLoading = true
-                    //                                    }
-                    //                                }
-                    //                                .placeholder {
-                    //                                    if isLoading {
-                    //                                        ProgressView()
-                    //                                    } else {
-                    //                                        Image(systemName: "photo")
-                    //                                    }
-                    //                                }
                         .resizable()
                         .scaledToFill()
                         .cornerRadius(16)
                     HStack {
                         Spacer()
                         Button {
-                            //likeAction
                             withAnimation(Animation.linear) {
                                 impactGenerator.impactOccurred()
                                 savePost(ad: post)
@@ -62,7 +40,7 @@ struct PostView: View {
                                     .shadow(radius: 4)
                                 HStack {
                                     Image("like")
-                                    Text("Like!")
+                                    Text("Save!")
                                         .font(Font.custom("monserat", size: 20))
                                         .foregroundColor(.white)
                                 }
@@ -95,7 +73,6 @@ struct PostView: View {
             }
             VStack {
                 Spacer()
-                
                 AlertView(showPopUp: $showAlert)
             }
         }

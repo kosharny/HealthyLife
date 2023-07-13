@@ -59,7 +59,6 @@ struct CalculatorViewResult: View {
                                     .font(Font.custom("monserat", size: 22))
                                     .foregroundColor(.red)
                             }
-//                            .padding(.top)
                             .padding(.bottom, 100)
                         }
                         .navigationDestination(isPresented: $isCalculatorResult) {
@@ -74,14 +73,11 @@ struct CalculatorViewResult: View {
             .ignoresSafeArea()
         }
         .navigationBarItems(leading: Button(action: {
-            // Возврат на предыдущую View при нажатии кнопки "Назад" в навигационной панели
             presentationMode.wrappedValue.dismiss()
         }) {
             Image(systemName: "chevron.left")
                 .foregroundColor(Color("text2color"))
         })
-        //        .navigationViewStyle(StackNavigationViewStyle())
-        //        .navigationBarHidden(true)
         .navigationBarBackButtonHidden()
     }
 }
