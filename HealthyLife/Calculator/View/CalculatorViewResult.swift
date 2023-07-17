@@ -87,6 +87,7 @@ extension CalculatorViewResult {
         VStack {
             ZStack {
                 RoundedRectangle(cornerRadius: 16)
+                    .frame(height: UIScreen.main.bounds.height/3.5)
                     .padding(.top)
                     .foregroundColor(.white)
                     .shadow(radius: 16)
@@ -95,7 +96,7 @@ extension CalculatorViewResult {
                         .multilineTextAlignment(.center)
                         .font(Font.custom("monserat", size: 20))
                         .foregroundColor(Color("text2color"))
-                        .padding(.top, 20)
+                        .padding(.top, 4)
                     HStack(spacing: 0) {
                         Text("\(calorie)")
                             .multilineTextAlignment(.center)

@@ -74,12 +74,18 @@ struct WaterControlView: View {
                             .padding(.top, -125)
                     }
                     
-                    
-                    Text(drunkWater.description + " л")
-                        .padding(.top, 60)
-                        .font(Font.custom("monserat", size: 56))
-                        .foregroundColor(.white)
-                        .shadow(radius: 16)
+                    HStack(spacing: 0) {
+                        Text(drunkWater.description)
+                            .font(Font.custom("monserat", size: 56))
+                            .foregroundColor(.white)
+                            .shadow(radius: 16)
+                        Text(" л")
+                            .font(Font.custom("monserat", size: 56))
+                            .foregroundColor(.white)
+                            .shadow(radius: 16)
+                    }
+                    .padding(.top, 60)
+                   
                 }
                 
                 ZStack {
@@ -88,12 +94,29 @@ struct WaterControlView: View {
                         .foregroundColor(.white)
                         .shadow(radius: 16)
                     if viewModel.userSession != nil && viewModel.currenUser?.waterNeeded != 0.0 {
-                        Text("Вам нужно выпивать " + "\(viewModel.currenUser!.waterNeeded)" + "л воды в день")
-                            .padding()
-                            .frame(width: UIScreen.main.bounds.width*0.75 ,height: UIScreen.main.bounds.height/9)
-                            .multilineTextAlignment(.center)
-                            .font(Font.custom("monserat", size: 20))
-                            .foregroundColor(Color("text2color"))
+                        VStack {
+                            HStack{
+                                Text("Вам нужно выпивать ")
+//                                    .padding()
+                                //                                .frame(width: UIScreen.main.bounds.width*0.75 ,height: UIScreen.main.bounds.height/9)
+                                    .multilineTextAlignment(.center)
+                                    .font(Font.custom("monserat", size: 20))
+                                    .foregroundColor(Color("text2color"))
+                                Text(viewModel.currenUser!.waterNeeded.description)
+//                                    .padding()
+                                //                                .frame(width: UIScreen.main.bounds.width*0.75 ,height: UIScreen.main.bounds.height/9)
+                                    .multilineTextAlignment(.center)
+                                    .font(Font.custom("monserat", size: 20))
+                                    .foregroundColor(Color("text2color"))
+                               
+                            }
+                            Text("л воды в день")
+//                                .padding()
+                            //                                .frame(width: UIScreen.main.bounds.width*0.75 ,height: UIScreen.main.bounds.height/9)
+                                .multilineTextAlignment(.center)
+                                .font(Font.custom("monserat", size: 20))
+                                .foregroundColor(Color("text2color"))
+                        }
                     } else {
                         Text("Среднестатистическому человеку нужно пить 2.5 л воды в день")
                             .padding()
@@ -130,10 +153,16 @@ struct WaterControlView: View {
                             .frame(width: UIScreen.main.bounds.width*0.3,height: UIScreen.main.bounds.height/13)
                             .foregroundColor(.white)
                             .shadow(radius: 16)
-                        Text("\(water)" + " л")
-                            .multilineTextAlignment(.center)
-                            .font(Font.custom("monserat", size: 32))
-                            .foregroundColor(Color("text2color"))
+                        HStack(spacing: 0) {
+                            Text(water.description)
+                                .multilineTextAlignment(.center)
+                                .font(Font.custom("monserat", size: 32))
+                                .foregroundColor(Color("text2color"))
+                            Text(" л")
+                                .multilineTextAlignment(.center)
+                                .font(Font.custom("monserat", size: 32))
+                                .foregroundColor(Color("text2color"))
+                        }
                     }
                     
                     Spacer()
